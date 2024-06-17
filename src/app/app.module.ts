@@ -15,6 +15,7 @@ import { AngularFireModule} from '@angular/fire/compat';
 import {AngularFireDatabaseModule} from '@angular/fire/compat/database';
 import { LayoutComponent } from './layout/layout.component';
 import { ListarDiscoComponent } from './listar-disco/listar-disco.component';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { ListarDiscoComponent } from './listar-disco/listar-disco.component';
     ArtistaComponent,
     IndexComponent,
     LayoutComponent,
-    ListarDiscoComponent
+    ListarDiscoComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,
