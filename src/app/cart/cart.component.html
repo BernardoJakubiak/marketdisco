@@ -1,0 +1,28 @@
+<div class="container mt-4">
+  <h2>Shopping Cart</h2>
+  <div *ngIf="cartItems.length === 0" class="alert alert-info" role="alert">
+    Your cart is empty.
+  </div>
+  <div *ngFor="let item of cartItems;" class="card mb-3">
+    <div class="row g-0">
+      <div class="col-md-4">
+        <img [src]="item.capa" class="img-fluid rounded-start" alt="...">
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <h5 class="card-title">{{ item.titulo }}</h5>
+          <p class="card-text">Price: R${{ item.preco }},00</p>
+          <button class="btn btn-danger" (click)="removeFromCart(item.key)">Remove</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="cartItems.length > 0">
+    <hr>
+    <div class="text-end">
+      <p><strong>Total: R${{ getTotal() }},00</strong></p>
+      <button class="btn btn-secondary mx-1" (click)="clearCart()">Clear Cart</button>
+      <button class="btn btn-primary mx-1" (click)="buy()">Buy Now</button>
+    </div>
+  </div>
+</div>

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { FormControl, Validators } from '@angular/forms';
+import { Products } from './service/index.products';
+import { discoModel } from './model/model';
 
 @Component({
   selector: 'app-index',
@@ -7,5 +8,24 @@ import { FormControl, Validators } from '@angular/forms';
   styleUrl: './index.component.css'
 })
 export class IndexComponent {
+  discos: any[] = [];
 
+  constructor(
+    private products: Products
+  ) {}
+
+  ngOnInit(): void {
+    this.listarDiscos();
+  }
+
+  listarDiscos(): void {
+    this.products.listarDisco().subscribe(
+      discos => {
+        this.discos = discos;
+      });
+  }
+
+  addToCart(product: any): void {
+    this.products.addToCart(product)
+  }
 }
