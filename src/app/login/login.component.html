@@ -1,13 +1,13 @@
 <div class="container">
     <h2>Login</h2>
-    <form (ngSubmit)="login()">
+    <form [formGroup]="loginForm" (ngSubmit)="onLogin()">
       <div class="form-group">
         <label for="email">Email:</label>
-        <input type="email" class="form-control" [(ngModel)]="email" name="email" required>
+        <input type="email" class="form-control" formControlName="email" id="email">
       </div>
       <div class="form-group">
-        <label for="pwd">Senha:</label>
-        <input type="password" class="form-control" [(ngModel)]="password" name="password" required>
+        <label for="password">Senha:</label>
+        <input type="password" class="form-control" formControlName="password" id="password">
       </div>
       <button type="submit" class="btn btn-primary">Login</button>
     </form>

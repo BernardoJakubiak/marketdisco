@@ -8,6 +8,8 @@ import { DiscoComponent } from './disco/disco.component';
 import { LayoutComponent } from './layout/layout.component';
 import { ListarDiscoComponent } from './listar-disco/listar-disco.component';
 import { NotFoundComponent } from './not-found/not-found.component'; // Import your 404 component
+import { LoginComponent } from './login/login.component';
+import { CadastroComponent } from './cadastro/cadastro.component';
 
 const routes: Routes = [
   // Redirect root path to 'layout/index' or any default route
@@ -25,8 +27,10 @@ const routes: Routes = [
       { path: 'disco', component: DiscoComponent },
       { path: 'listarDisco', component: ListarDiscoComponent },
     ]
+    
   },
-
+  {path: 'login', component: LoginComponent},
+  {path: 'cadastro', component: CadastroComponent},
   // Wildcard route for undefined paths
   { path: '**', component: NotFoundComponent } // This catches any undefined routes
 ];
