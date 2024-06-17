@@ -63,7 +63,9 @@
                                 <td>{{disco.musicas}}</td>
                                 <td>R${{disco.preco}}</td>
                                 <td>
-                                    <button type="button" class="btn btn-primary me-2" data-bs-toggle="modal" data-bs-target="#modalDiscoEdit" (click)="editarDisco(disco.key, disco.titulo, disco.artista, disco.capa, disco.musicas, disco.preco)"><i class="bi bi-pencil-fill"></i></button>
+                                    <button type="button" class="btn btn-primary me-2" data-bs-toggle="modal" data-bs-target="#modalDiscoEdit" (click)="editarDisco(disco)">
+                                        <i class="bi bi-pencil-fill"></i>
+                                    </button>
                                     <button type="button" (click)="excluirDisco(disco.key)"><i class="bi bi-trash-fill"></i></button>
                                 </td>
                             </tr>   
@@ -168,43 +170,43 @@
         </div>
 
         <!-- Modal - Editar Disco -->
-        <div class="modal fade" id="modalDiscoEdit" tabindex="-1" aria-labelledby="modalDiscoEditLabel" aria-hidden="true">
+        <div class="modal fade" id="modalDiscoEdit" tabindex="-1" aria-labelledby="modalDiscoEditLabel" aria-hidden="true" [hidden]="!showModalDiscoEdit">
             <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                <h1 class="modal-title fs-5" id="modalDiscoEditLabel">Editar Disco</h1>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <form [formGroup]="formDisco" *ngFor="let usuario of usuarios;">
-                        <div class="mb-3">
-                            <label for="titulo" class="form-label">Titulo do Disco</label>
-                            <input type="text" class="form-control" id="titulo" formControlName="titulo">
-                        </div>
-                        <div class="mb-3">
-                            <label for="artista" class="form-label">Artista</label>
-                            <input type="text" class="form-control" id="artista" formControlName="artista">
-                        </div>
-                        <div class="mb-3">
-                            <label for="capa" class="form-label">Capa</label>
-                            <input type="text" class="form-control" id="capa" formControlName="capa">
-                        </div>
-                        <div class="mb-3">
-                            <label for="musica" class="form-label">Musicas</label>
-                            <input type="text" class="form-control" id="musica" aria-describedby="musicaHelp" formControlName="musicas">
-                            <div id="musicaHelp" class="form-text">Coloque as musicas separadas por virgula.</div>
-                        </div>
-                        <div class="mb-3">
-                            <label for="preco" class="form-label">Preço</label>
-                            <input type="number" class="form-control" id="preco" formControlName="preco">
-                        </div>
-                        <button class="btn btn-primary">Salvar</button>
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="modalDiscoEditLabel">Editar Disco</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" (click)="fecharModalDiscoEdit()"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form [formGroup]="formDisco">
+                            <div class="mb-3">
+                                <label for="titulo" class="form-label">Titulo do Disco</label>
+                                <input type="text" class="form-control" id="titulo" formControlName="titulo">
+                            </div>
+                            <div class="mb-3">
+                                <label for="artista" class="form-label">Artista</label>
+                                <input type="text" class="form-control" id="artista" formControlName="artista">
+                            </div>
+                            <div class="mb-3">
+                                <label for="capa" class="form-label">Capa</label>
+                                <input type="text" class="form-control" id="capa" formControlName="capa">
+                            </div>
+                            <div class="mb-3">
+                                <label for="musica" class="form-label">Musicas</label>
+                                <input type="text" class="form-control" id="musica" aria-describedby="musicaHelp" formControlName="musicas">
+                                <div id="musicaHelp" class="form-text">Coloque as musicas separadas por virgula.</div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="preco" class="form-label">Preço</label>
+                                <input type="number" class="form-control" id="preco" formControlName="preco">
+                            </div>
                         </form>
                     </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    </div>
-            </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="fecharModalDiscoEdit()">Fechar</button>
+                            <button class="btn btn-primary" data-bs-dismiss="modal" (click)="salvarDisco()">Salvar</button>
+                        </div>
+                </div>
             </div>
         </div>
 
