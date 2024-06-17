@@ -29,8 +29,6 @@ const routes: Routes = [
     ]
     
   },
-  {path: 'login', component: LoginComponent},
-  {path: 'cadastro', component: CadastroComponent},
   // Wildcard route for undefined paths
   { path: '**', component: NotFoundComponent } // This catches any undefined routes
 ];
