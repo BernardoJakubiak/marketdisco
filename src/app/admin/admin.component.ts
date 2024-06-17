@@ -23,7 +23,6 @@ export class AdminComponent implements OnInit {
     private usuarioService: UsuarioService
   ) {
     this.formDisco = this.fb.group({
-      key: [''],
       titulo: ['', Validators.required],
       artista: ['', Validators.required],
       capa: ['', Validators.required],
