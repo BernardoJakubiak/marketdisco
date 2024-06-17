@@ -16,10 +16,6 @@
         <!-- Top navigation-->
         <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
             <div class="container-fluid">
-                <button type="button" class="btn btn-primary me-2" data-bs-toggle="modal" data-bs-target="#modalDisco"> Cadastrar Disco </button>                          
-                <button type="button" class="btn btn-primary me-2" data-bs-toggle="modal" data-bs-target="#modalCliente"> Cadastrar Cliente </button> 
-                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalArtista"> Cadastrar Artista </button>  
-                
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ms-auto mt-2 mt-lg-0">
                         <li class="nav-item active"><a class="nav-link" href="#!">Home</a></li>
@@ -39,14 +35,20 @@
         </nav>
         <!-- Page content-->
         <div class="container-fluid">
-            <div class="row">
+            <div class="row mx-3 my-5">
                 <!-- Tabelas lado a lado -->
                 <div class="col-md-6">
+                    <div class="d-flex justify-content-between align-items-center my-2">
+                        <h2 class="mb-0">Discos</h2>
+                        <button type="button" class="btn btn-primary me-2" data-bs-toggle="modal" data-bs-target="#modalDisco">
+                            Adicionar Novo <i class="bi bi-plus"></i>
+                        </button>
+                    </div>
                     <table class="table table-responsive table-striped-columns table-bordered">
                         <thead>
                             <tr>
                                 <th scope="col" class="img-column">Imagem</th>
-                                <th scope="col">Código</th>
+                                <th scope="col">ID</th>
                                 <th scope="col">Título</th>
                                 <th scope="col">Artista</th>
                                 <th scope="col">Musicas</th>
@@ -62,21 +64,27 @@
                                 <td>{{disco.artista}}</td>
                                 <td>{{disco.musicas}}</td>
                                 <td>R${{disco.preco}}</td>
-                                <td>
-                                    <button type="button" class="btn btn-primary me-2" data-bs-toggle="modal" data-bs-target="#modalDiscoEdit" (click)="editarDisco(disco.key)">
+                                <td style="width: 117px;">
+                                    <button type="button" class="btn btn-primary mx-1" data-bs-toggle="modal" data-bs-target="#modalDiscoEdit" (click)="editarDisco(disco.key)">
                                         <i class="bi bi-pencil-fill"></i>
                                     </button>
-                                    <button type="button" class="btn btn-primary me-2" (click)="excluirDisco(disco.key)"><i class="bi bi-trash-fill"></i></button>
+                                    <button type="button" class="btn btn-primary mx-1" (click)="excluirDisco(disco.key)"><i class="bi bi-trash-fill"></i></button>
                                 </td>
                             </tr>   
                         </tbody>
                     </table>
                 </div>
                 <div class="col-md-6">
+                    <div class="d-flex justify-content-between align-items-center my-3">
+                        <h2 class="mb-0">Usuarios</h2>
+                        <button type="button" class="btn btn-primary me-2" data-bs-toggle="modal" data-bs-target="#modalCliente">
+                            Adicionar Novo <i class="bi bi-plus"></i>
+                        </button>
+                    </div>
                     <table class="table table-responsive table-striped-columns table-bordered">
                         <thead>
                             <tr>
-                                <th scope="col">Chave</th>
+                                <th scope="col">ID</th>
                                 <th scope="col">Nome</th>
                                 <th scope="col">Senha</th>
                                 <th scope="col">E-mail</th>
@@ -93,7 +101,7 @@
                                 <td>{{usuario.email}}</td>
                                 <td>{{usuario.sexo}}</td>
                                 <td>{{usuario.cpf}}</td>
-                                <td>
+                                <td style="width: 117px;">
                                     <button type="button" class="btn btn-primary me-2" data-bs-toggle="modal" data-bs-target="#modalUsuarioEdit" (click)="editarUsuario(usuario.key)"><i class="bi bi-pencil-fill"></i></button>
                                     <button type="button" class="btn btn-primary me-2" (click)="excluirUsuario(usuario.key)"><i class="bi bi-trash-fill"></i></button>
                                 </td>
@@ -101,23 +109,64 @@
                         </tbody>
                     </table>
                 </div>
-            </div>
-            <!-- Tabela abaixo das duas anteriores -->
-            <div class="row">
-                <div class="col-md-12">
+                <div class="col-md-6">
+                    <div class="d-flex justify-content-between align-items-center my-3">
+                        <h2 class="mb-0">Artista</h2>
+                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalArtista">
+                            Adicionar Novo <i class="bi bi-plus"></i>
+                        </button>
+                    </div>
                     <table class="table table-responsive table-striped-columns table-bordered">
                         <thead>
                             <tr>
-                                <th scope="col">Exemplo</th>
-                                <th scope="col">Tabela</th>
-                                <th scope="col">Inferior</th>
+                                <th scope="col">ID</th>
+                                <th scope="col">Nome</th>
+                                <th scope="col">Albuns</th>
                             </tr>
                         </thead>
                         <tbody>
+                            <tr *ngFor="let artista of artistas;">
+                                <th scope="row">{{artista.key}}</th>
+                                <td>{{artista.nome}}</td>
+                                <td>{{artista.albuns}}</td>
+                                <td style="width: 117px;">
+                                    <button
+                                        type="button"
+                                        class="btn btn-primary me-2"
+                                        data-bs-toggle="modal"
+                                        data-bs-target="#modalArtistaEdit"
+                                        (click)="editarArtista(artista.key)">
+                                    <i class="bi bi-pencil-fill"></i>
+                                    </button>
+                                    <button type="button" class="btn btn-primary me-2" (click)="excluirArtista(artista.key)"><i class="bi bi-trash-fill"></i></button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="col-md-6">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <h2 class="mb-0">Vendidos</h2>
+                    </div>
+                    <table class="table table-responsive table-striped-columns table-bordered mb-5">
+                        <thead>
                             <tr>
-                                <td>Exemplo 1</td>
-                                <td>Exemplo 2</td>
-                                <td>Exemplo 3</td>
+                                <th scope="col" class="img-column">Imagem</th>
+                                <th scope="col">ID</th>
+                                <th scope="col">Título</th>
+                                <th scope="col">Artista</th>
+                                <th scope="col">Musicas</th>
+                                <th scope="col">Valor</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let vendido of vendidos;">
+                                <td class="img-column"> <img src="{{vendido.capa}}" class="img-fluid" /> </td>
+                                <th scope="row">{{vendido.key}}</th>
+                                <td>{{vendido.titulo}}</td>
+                                <td>{{vendido.artista}}</td>
+                                <td>{{vendido.musicas}}</td>
+                                <td>R${{vendido.preco}}</td>
                             </tr>   
                         </tbody>
                     </table>
@@ -133,7 +182,7 @@
             <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                <h1 class="modal-title fs-5" id="modalDiscoLabel">Cadastrar Disco</h1>
+                <h1 class="modal-title fs-5" id="modalDiscoLabel">Novo Disco</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
@@ -255,7 +304,7 @@
             <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                <h1 class="modal-title fs-5" id="modalClienteLabel">Cadastar Cliente</h1>
+                <h1 class="modal-title fs-5" id="modalClienteLabel">Novo Usuario</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
@@ -290,20 +339,57 @@
             </div>
         </div>
 
+        <!-- Modal - Editar Artista -->
+        <div class="modal fade" id="modalArtistaEdit" tabindex="-1" aria-labelledby="modalArtistaEditLabel" aria-hidden="true" [hidden]="!showModalArtistaEdit">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="modalArtistaEditLabel">Editar Artista</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" (click)="fecharModalArtistaEdit()"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form [formGroup]="formArtista">
+                            <div class="mb-3">
+                                <label for="nome" class="form-label">Nome:</label>
+                                <input type="text" class="form-control" id="nome" formControlName="nome">
+                              </div>
+                              <div class="mb-3">
+                                  <label for="albuns" class="form-label">Albuns:</label>
+                                  <input type="text" class="form-control" id="albuns" formControlName="albuns">
+                              </div>
+                        </form>
+                    </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="fecharModalArtistaEdit()">Fechar</button>
+                            <button class="btn btn-primary" data-bs-dismiss="modal" (click)="salvarArtista()">Salvar</button>
+                        </div>
+                </div>
+            </div>
+        </div>
+
         <!-- Modal - Cadastro Artista -->
         <div class="modal fade" id="modalArtista" tabindex="-1" aria-labelledby="modalArtistaLabel" aria-hidden="true">
             <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                <h1 class="modal-title fs-5" id="modalArtistaLabel">Cadastrar Artista</h1>
+                <h1 class="modal-title fs-5" id="modalArtistaLabel">Novo Artista</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                ...
+                    <form [formGroup]="formArtista">
+                        <div class="mb-3">
+                          <label for="nome" class="form-label">Nome:</label>
+                          <input type="text" class="form-control" id="nome" formControlName="nome">
+                        </div>
+                        <div class="mb-3">
+                            <label for="albuns" class="form-label">Albuns:</label>
+                            <input type="text" class="form-control" id="albuns" formControlName="albuns">
+                        </div>
+                    </form>
                 </div>
                 <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
-                <button type="button" class="btn btn-primary">Salvar</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                    <button class="btn btn-primary" data-bs-dismiss="modal" (click)="salvarArtista()">Salvar</button>
                 </div>
             </div>
             </div>

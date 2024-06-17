@@ -40,6 +40,18 @@ export class DiscoService {
         })
       );
   }
+
+  listarVendidos() {
+    return this.db.list('vendidos').snapshotChanges()
+      .pipe(
+        map(changes => {
+          return changes.map(c => ({
+            key: c.payload.key,
+            ...c.payload.val() as discoModel
+          }));
+        })
+      );
+  }
   
   excluirDisco(key: any) {
     return this.db.object('disco/' + key).remove();
