@@ -1,9 +1,8 @@
-import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, map } from 'rxjs';
-import { AngularFireDatabase, snapshotChanges } from '@angular/fire/compat/database';
+import { map } from 'rxjs';
+import { AngularFireDatabase } from '@angular/fire/compat/database';
 import { AngularFireStorage } from '@angular/fire/compat/storage';
-import { discoModel, usuarioModel } from '../model/model';
+import { discoModel } from '../model/model';
 
 @Injectable({
   providedIn: 'root'
@@ -15,11 +14,22 @@ export class DiscoService {
   constructor(private db: AngularFireDatabase,
     private storage: AngularFireStorage) { }
 
+  getDiscoByKey(key: string) {
+    return this.db.object<discoModel>('disco/' + key).snapshotChanges()
+      .pipe(
+        map(changes => {
+          const data = changes.payload.val() as discoModel;
+          const key = changes.key;
+          return { key, ...data };
+        })
+      );
+    }
+
   salvarDisco(disco: discoModel) { 
     return this.db.list('disco').push(disco);   
   }
 
-  listarDisco(): Observable<discoModel[]> {
+  listarDisco() {
     return this.db.list('disco').snapshotChanges()
       .pipe(
         map(changes => {
@@ -31,7 +41,6 @@ export class DiscoService {
       );
   }
   
-
   excluirDisco(key: any) {
     return this.db.object('disco/' + key).remove();
   }
@@ -50,5 +59,5 @@ export class DiscoService {
       console.error('Erro ao atualizar o disco:', error);
       throw error; // Optionally rethrow the error or handle it as needed
     }
-  }  
+  } 
 }
