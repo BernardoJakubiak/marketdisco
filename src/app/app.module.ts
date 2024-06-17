@@ -8,7 +8,7 @@ import { AdminComponent } from './admin/admin.component';
 import { ClienteComponent } from './cliente/cliente.component';
 import { ArtistaComponent } from './artista/artista.component';
 import { IndexComponent } from './index/index.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { environment } from '../environment/environment';
 import { AngularFireModule} from '@angular/fire/compat';
@@ -25,7 +25,7 @@ import { ListarDiscoComponent } from './listar-disco/listar-disco.component';
     ArtistaComponent,
     IndexComponent,
     LayoutComponent,
-    ListarDiscoComponent,
+    ListarDiscoComponent
   ],
   imports: [
     BrowserModule,
@@ -33,7 +33,8 @@ import { ListarDiscoComponent } from './listar-disco/listar-disco.component';
     ReactiveFormsModule,
     RouterModule,
     AngularFireModule.initializeApp(environment.firebase),
-    AngularFireDatabaseModule
+    AngularFireDatabaseModule,
+    FormsModule
   ],
   providers: [
     provideClientHydration()

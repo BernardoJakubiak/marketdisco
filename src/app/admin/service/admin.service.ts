@@ -10,15 +10,7 @@ import { discoModel, usuarioModel } from '../model/model';
 })
 export class DiscoService {
 
-  private disco: any;
 
-  setDisco(disco: any) {
-    this.disco = disco;
-  }
-
-  getDisco() {
-    return this.disco;
-  }
 
   constructor(private db: AngularFireDatabase,
     private storage: AngularFireStorage) { }

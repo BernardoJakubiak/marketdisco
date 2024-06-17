@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { FormsModule, FormGroup, FormControl, Validators } from '@angular/forms';
 import { discoModel, usuarioModel } from './model/model';
 import { DiscoService } from './service/admin.service';
 import { UsuarioService } from './service/admin.usuarioService';
@@ -15,6 +15,25 @@ export class AdminComponent implements OnInit{
   key?: string;
 
   formDisco = new FormGroup({
+    titulo: new FormControl('', 
+      [Validators.required]
+    ),
+    artista: new FormControl('', 
+      [Validators.required]
+    ),
+    capa: new FormControl('', 
+      [Validators.required]
+    ),
+    musicas: new FormControl('', 
+      [Validators.required]
+    ),
+    preco: new FormControl('', 
+      [Validators.required, Validators.min(1.1)]
+    )
+    
+  })
+
+  editFormDisco = new FormGroup({
     titulo: new FormControl('', 
       [Validators.required]
     ),
@@ -118,8 +137,8 @@ export class AdminComponent implements OnInit{
       })
     }
 
-    editarDisco(key: any, titulo: string, artista: string, capa: string, musicas: string, preco: number): void {
-      this.discoService.editarDisco(key, titulo , artista , capa , musicas , preco).then(result =>{
+    editarDisco(value: any): void {
+      this.discoService.editarDisco(value.key, value.titulo , value.artista , value.capa , value.musicas , value.preco).then(result =>{
         alert("Editado!")
       })
     }
