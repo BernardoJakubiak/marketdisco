@@ -66,7 +66,7 @@
                                     <button type="button" class="btn btn-primary me-2" data-bs-toggle="modal" data-bs-target="#modalDiscoEdit" (click)="editarDisco(disco.key)">
                                         <i class="bi bi-pencil-fill"></i>
                                     </button>
-                                    <button type="button" (click)="excluirDisco(disco.key)"><i class="bi bi-trash-fill"></i></button>
+                                    <button type="button" class="btn btn-primary me-2" (click)="excluirDisco(disco.key)"><i class="bi bi-trash-fill"></i></button>
                                 </td>
                             </tr>   
                         </tbody>
@@ -94,8 +94,8 @@
                                 <td>{{usuario.sexo}}</td>
                                 <td>{{usuario.cpf}}</td>
                                 <td>
-                                    <button type="button" ><i class="bi bi-pencil-fill" data-bs-toggle="modal" data-bs-target="#modalUsuarioEdit" (click)="editarUsuario(usuario.key)"></i></button>
-                                    <button type="button" (click)="excluirUsuario(usuario.key)"><i class="bi bi-trash-fill"></i></button>
+                                    <button type="button" class="btn btn-primary me-2" data-bs-toggle="modal" data-bs-target="#modalUsuarioEdit" (click)="editarUsuario(usuario.key)"><i class="bi bi-pencil-fill"></i></button>
+                                    <button type="button" class="btn btn-primary me-2" (click)="excluirUsuario(usuario.key)"><i class="bi bi-trash-fill"></i></button>
                                 </td>
                             </tr>
                         </tbody>
