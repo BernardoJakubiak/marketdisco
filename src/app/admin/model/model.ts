@@ -5,3 +5,11 @@ export class discoModel {
     musicas?: string;
     preco?: number;
 }
+
+export class usuarioModel {
+    nome?: string;
+      senha?: string;
+      email?: string;
+      sexo?: string;
+      cpf?: string
+}

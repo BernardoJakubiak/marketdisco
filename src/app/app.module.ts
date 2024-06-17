@@ -25,7 +25,7 @@ import { ListarDiscoComponent } from './listar-disco/listar-disco.component';
     ArtistaComponent,
     IndexComponent,
     LayoutComponent,
-    ListarDiscoComponent
+    ListarDiscoComponent,
   ],
   imports: [
     BrowserModule,

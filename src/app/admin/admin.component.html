@@ -1,78 +1,130 @@
-
-
-        <div class="d-flex" id="wrapper">
-            <!-- Sidebar-->
-            <div class="border-end bg-white" id="sidebar-wrapper">
-                <div class="sidebar-heading border-bottom bg-light">Centro de Controle - Market Disco</div>
-                <div class="list-group list-group-flush">
-                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">Dashboard</a>
-                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">Shortcuts</a>
-                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">Overview</a>
-                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">Events</a>
-                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">Profile</a>
-                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">Status</a>
+<div class="d-flex" id="wrapper">
+    <!-- Sidebar-->
+    <div class="border-end bg-white" id="sidebar-wrapper">
+        <div class="sidebar-heading border-bottom bg-light">Centro de Controle - Market Disco</div>
+        <div class="list-group list-group-flush">
+            <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">Dashboard</a>
+            <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">Shortcuts</a>
+            <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">Overview</a>
+            <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">Events</a>
+            <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">Profile</a>
+            <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">Status</a>
+        </div>
+    </div>
+    <!-- Page content wrapper-->
+    <div id="page-content-wrapper">
+        <!-- Top navigation-->
+        <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
+            <div class="container-fluid">
+                <button type="button" class="btn btn-primary me-2" data-bs-toggle="modal" data-bs-target="#modalDisco"> Cadastrar Disco </button>                          
+                <button type="button" class="btn btn-primary me-2" data-bs-toggle="modal" data-bs-target="#modalCliente"> Cadastrar Cliente </button> 
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalArtista"> Cadastrar Artista </button>  
+                
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ms-auto mt-2 mt-lg-0">
+                        <li class="nav-item active"><a class="nav-link" href="#!">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#!">Link</a></li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>
+                            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="#!">Action</a>
+                                <a class="dropdown-item" href="#!">Another action</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="#!">Something else here</a>
+                            </div>
+                        </li>
+                    </ul>
                 </div>
             </div>
-            <!-- Page content wrapper-->
-            <div id="page-content-wrapper">
-                <!-- Top navigation-->
-                <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
-                    <div class="container-fluid">
-                        <button type="button" class="btn btn-primary me-2" data-bs-toggle="modal" data-bs-target="#modalDisco"> Cadastrar Disco </button>                          
-                        <button type="button" class="btn btn-primary me-2" data-bs-toggle="modal" data-bs-target="#modalCliente"> Cadastrar Cliente </button> 
-                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalArtista"> Cadastrar Artista </button>  
-                        
-                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                            <ul class="navbar-nav ms-auto mt-2 mt-lg-0">
-                                <li class="nav-item active"><a class="nav-link" href="#!">Home</a></li>
-                                <li class="nav-item"><a class="nav-link" href="#!">Link</a></li>
-                                <li class="nav-item dropdown">
-                                    <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>
-                                    <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                        <a class="dropdown-item" href="#!">Action</a>
-                                        <a class="dropdown-item" href="#!">Another action</a>
-                                        <div class="dropdown-divider"></div>
-                                        <a class="dropdown-item" href="#!">Something else here</a>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </nav>
-                <!-- Page content-->
-                <div class="container-fluid">
-                    <div class="container text-center">
-                        <div class="row row-cols-2">
-                          <div class="col"><table class="table">
-                            <thead>
-                                <tr>
-                                    <th scope="col">Código</th>
-                                    <th scope="col">Título</th>
-                                    <th scope="col" style="width: 20%;">Imagem</th>
-                                    <th scope="col">Artista</th>
-                                    <th scope="col">Musicas</th>
-                                    <th scope="col">Valor</th>
-                                    <th scope="col"></th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr *ngFor="let disco of discos;">
-                                    <th scope="row">{{disco.key}}</th>
-                                    <td>{{disco.titulo}}</td>
-                                    <td><img src="{{disco.capa}}" width="30%" /></td>
-                                    <td>{{disco.artista}}</td>
-                                    <td>{{disco.musicas}}</td>
-                                    <td>R$ 3000,00</td>
-                                </tr>
-                            </tbody>
-                        </table></div>
-                          <div class="col">Column</div>
-                          <div class="col">Column</div>
-                        </div>
-                      </div>
+        </nav>
+        <!-- Page content-->
+        <div class="container-fluid">
+            <div class="row">
+                <!-- Tabelas lado a lado -->
+                <div class="col-md-6">
+                    <table class="table table-responsive table-striped-columns table-bordered">
+                        <thead>
+                            <tr>
+                                <th scope="col" class="img-column">Imagem</th>
+                                <th scope="col">Código</th>
+                                <th scope="col">Título</th>
+                                <th scope="col">Artista</th>
+                                <th scope="col">Musicas</th>
+                                <th scope="col">Valor</th>
+                                <th scope="col">Ações</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let disco of discos;">
+                                <td class="img-column"> <img src="{{disco.capa}}" class="img-fluid" /> </td>
+                                <th scope="row">{{disco.key}}</th>
+                                <td>{{disco.titulo}}</td>
+                                <td>{{disco.artista}}</td>
+                                <td>{{disco.musicas}}</td>
+                                <td>R${{disco.preco}}</td>
+                                <td>
+                                    <button type="button" class="btn btn-primary me-2" data-bs-toggle="modal" data-bs-target="#modalDiscoEdit" (click)="editarDisco(disco.key, disco.titulo, disco.artista, disco.capa, disco.musicas, disco.preco)"><i class="bi bi-pencil-fill"></i></button>
+                                    <button type="button" (click)="excluirDisco(disco.key)"><i class="bi bi-trash-fill"></i></button>
+                                </td>
+                            </tr>   
+                        </tbody>
+                    </table>
+                </div>
+                <div class="col-md-6">
+                    <table class="table table-responsive table-striped-columns table-bordered">
+                        <thead>
+                            <tr>
+                                <th scope="col">Chave</th>
+                                <th scope="col">Nome</th>
+                                <th scope="col">Senha</th>
+                                <th scope="col">E-mail</th>
+                                <th scope="col">Sexo</th>
+                                <th scope="col">CPF</th>
+                                <th scope="col">Ações</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let usuario of usuarios;">
+                                <th scope="row">{{usuario.key}}</th>
+                                <td>{{usuario.nome}}</td>
+                                <td>{{usuario.senha}}</td>
+                                <td>{{usuario.email}}</td>
+                                <td>{{usuario.sexo}}</td>
+                                <td>{{usuario.cpf}}</td>
+                                <td>
+                                    <button type="button" ><i class="bi bi-pencil-fill"></i></button>
+                                    <button type="button" (click)="excluirUsuario(usuario.key)"><i class="bi bi-trash-fill"></i></button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <!-- Tabela abaixo das duas anteriores -->
+            <div class="row">
+                <div class="col-md-12">
+                    <table class="table table-responsive table-striped-columns table-bordered">
+                        <thead>
+                            <tr>
+                                <th scope="col">Exemplo</th>
+                                <th scope="col">Tabela</th>
+                                <th scope="col">Inferior</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Exemplo 1</td>
+                                <td>Exemplo 2</td>
+                                <td>Exemplo 3</td>
+                            </tr>   
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>
+    </div>
+</div>
+
 
         <!-- Modal - Cadastro Disco -->
         <div class="modal fade" id="modalDisco" tabindex="-1" aria-labelledby="modalDiscoLabel" aria-hidden="true">
@@ -115,6 +167,47 @@
             </div>
         </div>
 
+        <!-- Modal - Editar Disco -->
+        <div class="modal fade" id="modalDiscoEdit" tabindex="-1" aria-labelledby="modalDiscoEditLabel" aria-hidden="true">
+            <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                <h1 class="modal-title fs-5" id="modalDiscoEditLabel">Editar Disco</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form [formGroup]="formDisco" *ngFor="let usuario of usuarios;">
+                        <div class="mb-3">
+                            <label for="titulo" class="form-label">Titulo do Disco</label>
+                            <input type="text" class="form-control" id="titulo" formControlName="titulo">
+                        </div>
+                        <div class="mb-3">
+                            <label for="artista" class="form-label">Artista</label>
+                            <input type="text" class="form-control" id="artista" formControlName="artista">
+                        </div>
+                        <div class="mb-3">
+                            <label for="capa" class="form-label">Capa</label>
+                            <input type="text" class="form-control" id="capa" formControlName="capa">
+                        </div>
+                        <div class="mb-3">
+                            <label for="musica" class="form-label">Musicas</label>
+                            <input type="text" class="form-control" id="musica" aria-describedby="musicaHelp" formControlName="musicas">
+                            <div id="musicaHelp" class="form-text">Coloque as musicas separadas por virgula.</div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="preco" class="form-label">Preço</label>
+                            <input type="number" class="form-control" id="preco" formControlName="preco">
+                        </div>
+                        <button class="btn btn-primary">Salvar</button>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    </div>
+            </div>
+            </div>
+        </div>
+
         <!-- Modal - Cadastro Cliente -->
         <div class="modal fade" id="modalCliente" tabindex="-1" aria-labelledby="modalClienteLabel" aria-hidden="true">
             <div class="modal-dialog">
@@ -124,7 +217,33 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                ...
+                    <form [formGroup]="formUsuario">
+                        <div class="mb-3">
+                          <label for="nome" class="form-label">Nome:</label>
+                          <input type="text" class="form-control" id="nome" formControlName="nome">
+                        </div>
+                        <div class="mb-3">
+                            <label for="email" class="form-label">E-Mail:</label>
+                            <input type="text" class="form-control" id="email" formControlName="email">
+                        </div>
+                        <div class="mb-3">
+                            <label for="cpf" class="form-label">CPF:</label>
+                            <input type="text" class="form-control" id="cpf" formControlName="cpf">
+                        </div>
+                        <div class="mb-3">
+                            <label for="sexo" class="form-label">Sexo:</label>
+                            <input type="text" class="form-control" id="sexo" formControlName="sexo">
+                        </div>
+                        <div class="mb-3">
+                            <label for="aniver" class="form-label">Data de Nascimento:</label>
+                            <input type="date" class="form-control" id="aniver" formControlName="dataNascimento">
+                        </div>
+                        <div class="mb-3">
+                            <label for="Senha" class="form-label">Senha:</label>
+                            <input type="password" class="form-control" id="Senha" formControlName="senha">
+                        </div>
+                        <button class="btn btn-primary" (click)="salvarUsuario()">Salvar</button>
+                      </form>
                 </div>
                 <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>

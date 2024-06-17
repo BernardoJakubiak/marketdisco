@@ -10863,3 +10863,11 @@ body.sb-sidenav-toggled #wrapper #sidebar-wrapper {
     margin-left: -15rem;
   }
 }
+
+.img-column {
+  width: 130px;
+}
+.img-fluid {
+  width: 100%;
+  height: auto;
+}
