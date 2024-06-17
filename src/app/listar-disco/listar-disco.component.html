@@ -1,0 +1,24 @@
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Código</th>
+            <th scope="col">Título</th>
+            <th scope="col" style="width: 20%;">Imagem</th>
+            <th scope="col">Artista</th>
+            <th scope="col">Musicas</th>
+            <th scope="col">Valor</th>
+            <th scope="col"></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let disco of discos;">
+            <th scope="row">{{disco.key}}</th>
+            <td>{{disco.titulo}}</td>
+            <td><img src="{{disco.capa}}" width="30%" /></td>
+            <td>{{disco.artista}}</td>
+            <td>{{disco.musicas}}</td>
+            <td>R$ 3000,00</td>
+        </tr>
+    </tbody>
+</table>
+

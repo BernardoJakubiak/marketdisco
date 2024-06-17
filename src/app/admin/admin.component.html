@@ -1,0 +1,155 @@
+
+
+        <div class="d-flex" id="wrapper">
+            <!-- Sidebar-->
+            <div class="border-end bg-white" id="sidebar-wrapper">
+                <div class="sidebar-heading border-bottom bg-light">Centro de Controle - Market Disco</div>
+                <div class="list-group list-group-flush">
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">Dashboard</a>
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">Shortcuts</a>
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">Overview</a>
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">Events</a>
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">Profile</a>
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">Status</a>
+                </div>
+            </div>
+            <!-- Page content wrapper-->
+            <div id="page-content-wrapper">
+                <!-- Top navigation-->
+                <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
+                    <div class="container-fluid">
+                        <button type="button" class="btn btn-primary me-2" data-bs-toggle="modal" data-bs-target="#modalDisco"> Cadastrar Disco </button>                          
+                        <button type="button" class="btn btn-primary me-2" data-bs-toggle="modal" data-bs-target="#modalCliente"> Cadastrar Cliente </button> 
+                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalArtista"> Cadastrar Artista </button>  
+                        
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                            <ul class="navbar-nav ms-auto mt-2 mt-lg-0">
+                                <li class="nav-item active"><a class="nav-link" href="#!">Home</a></li>
+                                <li class="nav-item"><a class="nav-link" href="#!">Link</a></li>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>
+                                    <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                        <a class="dropdown-item" href="#!">Action</a>
+                                        <a class="dropdown-item" href="#!">Another action</a>
+                                        <div class="dropdown-divider"></div>
+                                        <a class="dropdown-item" href="#!">Something else here</a>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+                <!-- Page content-->
+                <div class="container-fluid">
+                    <div class="container text-center">
+                        <div class="row row-cols-2">
+                          <div class="col"><table class="table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Código</th>
+                                    <th scope="col">Título</th>
+                                    <th scope="col" style="width: 20%;">Imagem</th>
+                                    <th scope="col">Artista</th>
+                                    <th scope="col">Musicas</th>
+                                    <th scope="col">Valor</th>
+                                    <th scope="col"></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let disco of discos;">
+                                    <th scope="row">{{disco.key}}</th>
+                                    <td>{{disco.titulo}}</td>
+                                    <td><img src="{{disco.capa}}" width="30%" /></td>
+                                    <td>{{disco.artista}}</td>
+                                    <td>{{disco.musicas}}</td>
+                                    <td>R$ 3000,00</td>
+                                </tr>
+                            </tbody>
+                        </table></div>
+                          <div class="col">Column</div>
+                          <div class="col">Column</div>
+                        </div>
+                      </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal - Cadastro Disco -->
+        <div class="modal fade" id="modalDisco" tabindex="-1" aria-labelledby="modalDiscoLabel" aria-hidden="true">
+            <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                <h1 class="modal-title fs-5" id="modalDiscoLabel">Cadastrar Disco</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form [formGroup]="formDisco">
+                        <div class="mb-3">
+                          <label for="titulo" class="form-label">Titulo do Disco</label>
+                          <input type="text" class="form-control" id="titulo" formControlName="titulo">
+                        </div>
+                        <div class="mb-3">
+                            <label for="artista" class="form-label">Artista</label>
+                            <input type="text" class="form-control" id="artista" formControlName="artista">
+                        </div>
+                        <div class="mb-3">
+                            <label for="capa" class="form-label">Capa</label>
+                            <input type="text" class="form-control" id="capa" formControlName="capa">
+                        </div>
+                        <div class="mb-3">
+                            <label for="musica" class="form-label">Musicas</label>
+                            <input type="text" class="form-control" id="musica" aria-describedby="musicaHelp" formControlName="musicas">
+                            <div id="musicaHelp" class="form-text">Coloque as musicas separadas por virgula.</div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="preco" class="form-label">Preço</label>
+                            <input type="number" class="form-control" id="preco" formControlName="preco">
+                        </div>
+                        <button class="btn btn-primary" (click)="salvarDisco()">Salvar</button>
+                      </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    </div>
+            </div>
+            </div>
+        </div>
+
+        <!-- Modal - Cadastro Cliente -->
+        <div class="modal fade" id="modalCliente" tabindex="-1" aria-labelledby="modalClienteLabel" aria-hidden="true">
+            <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                <h1 class="modal-title fs-5" id="modalClienteLabel">Cadastar Cliente</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                ...
+                </div>
+                <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+            </div>
+            </div>
+        </div>
+
+        <!-- Modal - Cadastro Artista -->
+        <div class="modal fade" id="modalArtista" tabindex="-1" aria-labelledby="modalArtistaLabel" aria-hidden="true">
+            <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                <h1 class="modal-title fs-5" id="modalArtistaLabel">Cadastrar Artista</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                ...
+                </div>
+                <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+            </div>
+            </div>
+        </div>
+    
