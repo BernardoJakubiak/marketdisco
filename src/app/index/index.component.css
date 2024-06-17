@@ -10824,3 +10824,15 @@ textarea.form-control-lg {
     display: none !important;
   }
 }
+
+.header-title {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 2.5rem;
+  font-weight: bold;
+  background-color: rgba(0, 0, 0, 0.5); /* Background semi-transparente para melhor contraste */
+  padding: 10px;
+  color: white;
+}
