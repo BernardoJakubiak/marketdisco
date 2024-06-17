@@ -27,8 +27,10 @@ const routes: Routes = [
       { path: 'listarDisco', component: ListarDiscoComponent },
       { path: 'cart', component: CartComponent },
     ]
+    
   },
-
+  {path: 'login', component: LoginComponent},
+  {path: 'cadastro', component: CadastroComponent},
   // Wildcard route for undefined paths
   { path: '**', component: NotFoundComponent } // This catches any undefined routes
 ];
