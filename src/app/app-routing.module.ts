@@ -19,7 +19,7 @@ const routes: Routes = [
       {path: 'listarDisco', component: ListarDiscoComponent}
     ]
   },
-  {path: 'listar-disco', component: ListarDiscoComponent}
+  }
 ];
 
 @NgModule({
