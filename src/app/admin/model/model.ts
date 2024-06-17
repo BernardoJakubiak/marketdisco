@@ -13,3 +13,8 @@ export class usuarioModel {
     cpf: string = '';
     senha: string = '';
 }
+
+export class artistaModel {
+    nome: string = '';
+    albuns: string = '';
+}
